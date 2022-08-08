@@ -1,0 +1,18 @@
+footer {
+    color: $colorNegro; 
+    background-color: $colorBlanco;
+    .container{ border-top: 1px solid $colorGrisOscuro; }
+    .site-map{
+        margin: 16px 0;
+        p{
+            margin:0;
+            font-size: $small;
+            a{
+                padding: 0 12px;
+                text-decoration: none;
+            }
+        }
+        .logo img{max-width: 94px;}
+    }
+
+}

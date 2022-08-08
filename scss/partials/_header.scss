@@ -1,0 +1,100 @@
+@import "_mixin.scss";
+
+header{
+    position: fixed;
+    z-index: 9999;
+    width: 100%;
+    top: 0;
+    background-color: $colorNegro; 
+    color: $colorBlanco;
+    .menu{
+        height: 70px;
+        &__mobile, &__mobile--desktop{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        &__mobile{
+            height: 100%;
+            .btn-search, .burger-mobile{
+                color: $colorBlanco; 
+                font-size: $medium;
+            }
+        }
+        &__mobile--desktop{
+            height: 60%;
+            border-bottom: 1px solid $colorGrisOscuro;
+            .input-contain{
+                position: relative;
+                width: 46%;
+                text-align: center;
+                .input-search{
+                    height: 30px;
+                    width: 100%;
+                    padding: 6px 20px;
+                    font-size: $small;
+                    color: $colorPrim;
+                    background-color: transparent;
+                    border-radius: 4px;
+                    border: 1px solid $colorGrisOscuro;
+                }
+                .icono{
+                    position: absolute;
+                    height: 100%;
+                    right: 20px;
+                    padding-top: 5px;
+                    font-size: $small;
+                }
+            }
+            .btn-heart, .btn-cart, .btn-bell{
+                color: $colorNegro;
+                font-size: $medium;
+            }
+        }
+        &__desktop{
+            height: 40%;
+            .nav{
+                height: 100%;
+                align-items: center;
+                justify-content: space-between;
+                align-content: center;
+                font-size: $small;
+                &__link:hover{
+                    font-weight: 600;
+                }
+                @include max-screen("991px"){
+                    padding: 22px;
+                    flex-direction: column;
+                    justify-content: flex-start;
+                    li{ width: 80%;}
+                    &__link{
+                        border-bottom: 1px solid $colorGrisOscuro;
+                        display: block;
+                        height: 32px;
+                        margin-bottom: 16px;
+                        text-align: center;
+                    }
+                }
+            }
+            @include max-screen("991px"){
+                left: -100%;
+                width: 100%;
+                height: 92%;
+                margin: 0px;
+                position: fixed;
+                z-index: 1;
+                background: $colorNegro;
+            } 
+        }
+        .logo img{
+            max-height: 45px;
+        }
+        @include min-screen("lg"){height: 101px;} 
+    }
+    @include min-screen("lg"){
+        color: $colorNegro; 
+        background-color: $colorBlanco;
+    } 
+
+}
+    

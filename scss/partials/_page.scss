@@ -1,0 +1,249 @@
+@import "_mixin.scss";
+
+.carousel-banner{
+@include max-screen(){
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+.carousel{
+    margin-top:70px;
+    &-indicators {
+        li{
+            border-radius: 50%;
+            width: 12px;
+            height: 12px;
+            margin-right: 8px;
+            margin-left: 8px;
+            background-color: $colorNegro;
+        }
+    }
+    &-control-prev, &-control-next{width: auto;}
+    &-control-prev-icon, &-control-next-icon{
+        background-image: none;
+        width: 25px;
+        height: 45px;
+        padding: 10px 0px;
+        color: $colorNegro;
+        cursor: pointer; 
+        transition: 0.5s ease-in;
+        background-color: rgba(0, 0, 0, 0.2);
+        img{
+            width: 25px;
+            filter: invert(1);
+        }
+    }
+    &-item{
+        img {
+            width: 100%;
+            object-fit: cover;
+            max-height: 600px;
+        }
+    }
+    &-caption{
+        right: 10%;
+        left: 10%;    
+        top: 50%;
+        padding: 0;
+        transform: translateY(-50%);
+        bottom: auto;
+        text-align: center;
+    }
+    .banner{
+        font-family: 'Poppins',sans-serif;
+        color: $colorPrim;
+        &__description, &__title{
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 5;
+            overflow: hidden;
+            @include min-screen("md"){
+                -webkit-line-clamp: 3;
+            }
+        }
+        &__description{
+            font-size:$medium;
+            font-weight: 400;
+        }
+        &__title{
+            font-size:$large;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            @include min-screen("md"){
+                font-size:$xlarge;
+            }
+        }
+    } 
+    @include max-screen(){
+        &-caption--bottom{ top: 68%; }
+    }
+    @include min-screen("md"){
+        margin-top:101px;
+        &-caption--left{
+            right: 45%;
+            left: 10%;    
+            text-align: left;
+        }
+        &-caption--right{
+            right: 10%;
+            left: 45%;    
+            text-align: right;
+            .banner__btn{
+                margin: 0 0 auto auto;
+            }
+        }
+    }
+}
+
+.marca{
+    margin-bottom: 30px;
+    overflow: hidden;
+    position: relative;
+
+    &__texto{
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 45%;
+        padding: 25px;
+        font-family: 'Poppins',sans-serif;
+        color: $colorSec;
+        z-index: 3;
+        h4{
+            font-size:$regular;
+            font-weight: 400;
+            margin-bottom: 0;
+        }
+        h3{
+            font-size:$medium;
+            font-weight: 500;
+        }
+        span{
+            font-size:$small;
+            font-weight: 400;
+            color: $colorSec;
+            opacity: .8;
+            i {  transition: .8s; }
+        }  
+        @include max-screen(){
+            &--max{ right: 0; }
+        }
+    }
+
+    &__link{
+        img{ 
+            width: 100%; 
+            transition: transform 1.5s, filter 1s ease-in-out;
+            transform-origin: center center;
+        }
+    }
+    &:hover{
+        .marca__texto span i { padding-left: 8px; }
+        .marca__link img { transform: scale(1.1); }
+    } 
+}
+
+.ofertas{
+
+    &__all, &__destacados{
+        padding-bottom: 36px;
+    }
+    &__all{
+        line-height: 1.1;
+        font-size:$medium;
+        .boton{
+            font-size:$regular;
+        }
+    }
+    &__destacados{
+        .card-ofertas, .card-detalles{
+            overflow: hidden;
+            border: none;
+            border-radius: 0;
+        }
+        .card-link-etiqueta{
+            position: absolute;
+            display: flex;
+            border-radius: 8px;
+            top: 5%;
+            right: 5%;
+            width: 55px;
+            height: 22px;
+            z-index: 100;
+            text-align: right;
+            font-family: Poppins,sans-serif;
+            font-size: $small;
+            font-weight: 500;
+            align-items: center;
+            justify-content: center;
+            align-content: center;
+            flex-wrap: nowrap;
+            flex-direction: row;
+            &--primary{
+                color: $colorPrim;
+                background-color: $colorFondoOscuro;
+            }
+            &--secondary{
+                color: $colorBlanco;
+                background-color: $colorSec;
+            }
+        }
+        .card-link{
+            display: block;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            &-img, &-img--hover{
+                display: block;
+                transition: .5s;
+                transform: translateY(0);
+                 img {
+                    display: block;
+                    width: 100%;
+                    margin: 0;
+                }
+            }
+            &-img--hover{
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                transform: translateY(100%);
+                 img {
+                    display: block;
+                    width: 100%;
+                    margin: 0;
+                }
+            }
+        }
+        .oferta-producto:hover{
+            .card-link-img{
+                transform: translate3d(0,-100%,0);
+                transition: transform 1s cubic-bezier(.19,1,.22,1);
+            }
+            .card-link-img--hover{
+                transform: translateY(0);
+                transition: transform 1s cubic-bezier(.19,1,.22,1);
+            }
+        }
+
+        .card-detalles{
+            align-items: center;
+            justify-content: space-between;
+            padding: 6px 12px;
+            font-family: Poppins,sans-serif;
+            font-size: $regular;
+            line-height: 1.2;
+            letter-spacing: 1px;
+            text-align: center;
+            .titulo-oferta{
+                font-weight: 500;
+            }
+            .valor-oferta{
+                padding-top: .5rem;
+            }
+        }
+
+    }
+}
